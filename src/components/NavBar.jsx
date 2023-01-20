@@ -44,7 +44,7 @@ export default function NavBar() {
                 </Nav>
                 <Nav className="ms-auto">
                     <Cartwidget cartCounter={3} />
-                    <button className="btn btn-success">Sign Up</button>
+                    <button className="btn btn-dark">Sign Up</button>
                 </Nav>
               </Navbar.Collapse>
             </Container>
