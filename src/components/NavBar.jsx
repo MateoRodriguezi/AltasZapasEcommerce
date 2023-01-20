@@ -29,7 +29,8 @@ export default function NavBar() {
         return (
           <Navbar expand="lg">
             <Container>
-              <Navbar.Brand href="#home" className='brand'>Altas Zapas</Navbar.Brand>
+              <img src='src/assets/logo_size.jpg' alt="Altas Zapas" style={{width: '90px', marginRight: '30px'}}/>
+              <Navbar.Brand href="#home" className='brand' style={{ fontFamily: 'Sans-serif, Arial', fontSize: '22px'}}>Altas Zapas</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
@@ -42,7 +43,7 @@ export default function NavBar() {
                   }
                 </Nav>
                 <Nav className="ms-auto">
-                    <Cartwidget/>
+                    <Cartwidget cartCounter={3} />
                     <button className="btn btn-success">Sign Up</button>
                 </Nav>
               </Navbar.Collapse>
