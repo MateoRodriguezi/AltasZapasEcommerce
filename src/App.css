@@ -1,0 +1,22 @@
+.navbar {
+  background: #2e158c;
+}
+
+.brand, .list_item{
+  color: #fff !important;
+  display: flex;
+  display: inline-block;
+}
+
+.list_item:hover{
+  color: tomato !important;
+}
+
+.btn{
+  margin-left: 10px;
+  background-color: tomato !important;
+}
+
+button.navbar-toggler.collapsed {
+  background: white !important;
+}
