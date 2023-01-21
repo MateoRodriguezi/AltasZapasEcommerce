@@ -1,5 +1,6 @@
 .navbar {
   background: linear-gradient(to right, #3f51b5, #5a55ae, #7b5fac, #8f6aae, #a86aa4, #cc6b8e, #f18271, #f3a469, #f7c978);
+  margin-bottom:20px;
 }
 
 .brand, .list_item{
