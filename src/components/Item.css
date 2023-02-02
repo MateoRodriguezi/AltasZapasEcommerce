@@ -1,0 +1,41 @@
+.loading-circle {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.loading-inner-circle {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 8px solid #a86aa4;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: loading-spin 1s ease-in-out infinite;
+}
+
+.product-image {
+  height: 300px;
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon {
+  animation: rotate 2s ease-in-out infinite;
+}

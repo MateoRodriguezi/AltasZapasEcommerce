@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
 import { gFetch } from '../utils/gFetch';
 
 import './Item.css'
+ 
 
-const ItemListContainer = (props) => {
+const ItemDetailContainer = () => {
   const [ productos, setProductos ] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { idCategoria } = useParams()
+  const { idProducto } = useParams()
 
   useEffect (() => {
-    if (idCategoria) {
+    if (idProducto) {
       gFetch()
         .then(res => {
-          setProductos(res.filter(producto => producto.categoria === idCategoria));
+          setProductos(res.filter(producto => producto.id === idProducto));
           setLoading(false);
       })
         .catch(error => console.log(error));
@@ -29,7 +29,7 @@ const ItemListContainer = (props) => {
       })
         .catch(error => console.log(error));
     }
-  }, [idCategoria]);
+  }, [idProducto]);
 
 
   if (loading) {
@@ -59,9 +59,9 @@ const ItemListContainer = (props) => {
                                         </div>
                                         <div className='card-body text-center'>
                                           <strong>ARS ${producto.price}</strong>
-                                          <Link to={`/detail/${producto.id}`}>
-                                            <button className='btn btn-outline-primary w-100 mt-2'> Detalles </button>
-                                          </Link>
+                                        </div>
+                                        <div className='card-body text-center' style={{fontFamily: 'Arial', fontSize: '14px'}}>
+                                          {producto.description}
                                         </div>
                                       </div>) }
       </div>
@@ -69,4 +69,4 @@ const ItemListContainer = (props) => {
   );
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer;

@@ -3,16 +3,18 @@
   margin-bottom:20px;
 }
 
-.brand, .list_item{
+.list_item{
   color: #fff !important;
   font-family: 'Sans-serif', Arial;
   font-size: 22px;
   display: flex;
   display: inline-block;
+  margin-right: 2.5rem;
 }
 
 .list_item:hover{
-  color: black !important;
+  color: rgb(171, 169, 169) !important;
+  cursor: pointer;
 }
 
 .btn{
@@ -21,4 +23,17 @@
 
 button.navbar-toggler.collapsed {
   background: white !important;
+}
+
+.brand {
+  color: #fff !important;
+  font-family: 'Sans-serif', Arial;
+  font-size: 22px;
+  display: flex;
+  display: inline-block;
+}
+
+.brand:hover {
+  color: rgb(171, 169, 169) !important;
+  cursor: pointer;
 }
