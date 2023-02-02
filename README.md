@@ -22,3 +22,5 @@ React - Utilizado para construir la interfaz de usuario
 
 Autor
 Mateo Rodriguez Pintos - https://github.com/MateoRodriguezi
+
+[Grabación de pantalla 2023-02-02 a la(s) 02.52.21.zip](https://github.com/MateoRodriguezi/PreEntrega2RodriguezPintos/files/10565594/Grabacion.de.pantalla.2023-02-02.a.la.s.02.52.21.zip)
