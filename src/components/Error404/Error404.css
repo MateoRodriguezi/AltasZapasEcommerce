@@ -1,0 +1,10 @@
+.error-header {
+    font-size: 60px;
+    color: #FF4136;
+  }
+
+  .error-message {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #FF4136;
+  }

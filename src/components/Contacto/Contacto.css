@@ -1,0 +1,12 @@
+.construction-title {
+    background: #f6930a;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 3s ease-out infinite;
+  }
+
+.icon {
+  animation: rotate 5s ease-in-out infinite;
+  margin-right: 20px;
+}

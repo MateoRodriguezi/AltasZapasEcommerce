@@ -35,7 +35,3 @@
     transform: rotate(360deg);
   }
 }
-
-.icon {
-  animation: rotate 2s ease-in-out infinite;
-}
