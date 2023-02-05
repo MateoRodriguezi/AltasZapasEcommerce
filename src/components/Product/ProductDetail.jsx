@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import './Product.css'
 
 const Producto = ({ producto }) => (
   <div key={producto.id} className="card mx-2 mb-4" style={{width: "300px"}}>
@@ -15,6 +18,9 @@ const Producto = ({ producto }) => (
     </div>
     <div className='card-body text-center'>
       <strong>ARS ${producto.price}</strong>
+    </div>
+    <div className='card-body text-center'>
+      <NavLink to={'/'} className="btn btn-dark btn-large">Atrás</NavLink>
     </div>
   </div>
 );

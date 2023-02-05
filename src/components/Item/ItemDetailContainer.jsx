@@ -5,6 +5,7 @@ import { gFetch } from '../../utils/gFetch';
 import ProductoDetail from '../Product/ProductDetail';
 
 import './Item.css'
+import ItemCount from './ItemCount';
  
 
 const ItemDetailContainer = () => {
@@ -45,7 +46,10 @@ const ItemDetailContainer = () => {
   }
 
   return (
-    <ProductoDetail productos={productos} />
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <ProductoDetail productos={productos} />
+      <ItemCount style={{ marginLeft: 'auto' }} />
+    </div>
   );
 }
 
