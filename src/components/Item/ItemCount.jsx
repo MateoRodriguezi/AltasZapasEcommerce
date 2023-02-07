@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import { FaShoppingCart, FaRegLaughWink } from "react-icons/fa";
+import Swal from 'sweetalert2';
 
 
 const ItemCount = ({onAdd}) => {
@@ -35,7 +37,7 @@ const ItemCount = ({onAdd}) => {
             Agregar al carrito <FaShoppingCart />
           </button>
           <button className="btn btn-dark ml-3" onClick={handleAddToCart}>
-            Intercambio            
+            Intercambiabilidad            
           </button>
         </>
       ) : (

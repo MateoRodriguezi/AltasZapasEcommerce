@@ -3,16 +3,25 @@ import { NavLink } from 'react-router-dom';
 import { useCartContext } from '../../Context/CartContext';
 import ItemCount from '../Item/ItemCount';
 
+import Swal from 'sweetalert2';
+
+
 import './Product.css'
 
 const ProductDetail = ({ productos }) => {
 
   const { agregarCarrito } = useCartContext()
 
-  const onAdd = (cant)=>{
-    console.log(cant)
-    agregarCarrito( { ...productos, cantidad: cant } )
-  }
+  const onAdd = (cant) => {
+    agregarCarrito({ ...productos, cantidad: cant });
+    Swal.fire({
+      title: 'Agregado exitosamente!',
+      text: `El producto ha sido agregado al carrito.`,
+      icon: 'success',
+      timer: 3000,
+      showConfirmButton: false
+    });
+  };
 
   const { cartList } = useCartContext()
     console.log(cartList)

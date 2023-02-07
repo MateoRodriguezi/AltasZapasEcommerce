@@ -9,17 +9,16 @@ export const CartContextProvider = ({children}) => {
 
     const [ cartList, setCartList ] = useState([])
 
-    const agregarCarrito = (newProducto, cant) => {
-        setCartList( [
-            ...cartList,
-            {
-                id: cartList.length + 1, // agrega un id único para cada objeto
-                product: newProducto,
-                count: cant
-            }
-        ])
-    }
-
+    const agregarCarrito = (newProducto) => {
+        const productIndex = cartList.findIndex(producto => producto.id === newProducto.id);
+        if (productIndex === -1) {
+          setCartList([...cartList, newProducto]);
+        } else {
+          const updatedCartList = [...cartList];
+          updatedCartList[productIndex].cantidad += newProducto.cantidad;
+          setCartList(updatedCartList);
+        }
+      };
     const vaciarCarrito = () => setCartList ([ ])
 
     return (
