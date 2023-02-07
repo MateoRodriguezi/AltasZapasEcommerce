@@ -15,19 +15,23 @@ function App() {
 
   return (
 
-    <BrowserRouter>
-      <CartContextProvider>
-        <NavBar/>
-          <Routes>
-            <Route path='/' element= {<ItemListContainer/>} />
-            <Route path='/categoria/:idCategoria' element= {<ItemListContainer/>} />
-            <Route path='/detail/:idProducto' element= {<ItemDetailContainer/>} />
-            <Route path='/contacto' element= {<Contacto/>} />
-            <Route path='/cart' element= {<Cart/>} />
-            <Route path='*' element={<Error404/>} />
-          </Routes>
-      </CartContextProvider>
-    </BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
+          <NavBar/>
+
+            <Routes>
+
+              <Route path='/' element= {<ItemListContainer/>} />
+              <Route path='/categoria/:idCategoria' element= {<ItemListContainer/>} />
+              <Route path='/detail/:idProducto' element= {<ItemDetailContainer/>} />
+              <Route path='/contacto' element= {<Contacto/>} />
+              <Route path='/cart' element= {<Cart/>} />
+              <Route path='*' element={<Error404/>} />
+
+            </Routes>
+
+      </BrowserRouter>
+    </CartContextProvider>
 
   )
 }

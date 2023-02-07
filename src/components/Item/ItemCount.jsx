@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaShoppingCart, FaRegLaughWink } from "react-icons/fa";
 
 
-const ItemCount = ({ productos }) => {
+const ItemCount = ({onAdd}) => {
   const [count, setCount] = useState(0);
   const [inputType, setInputType ] = useState('buttons');
   
@@ -31,17 +31,20 @@ const ItemCount = ({ productos }) => {
           <button className="btn btn-success" onClick={() => handleClick(1)}>
             +
           </button>
-          <button className="btn btn-dark ml-3" onClick={handleAddToCart}>
+          <button className="btn btn-dark ml-3" onClick={() => onAdd(count)}>
             Agregar al carrito <FaShoppingCart />
+          </button>
+          <button className="btn btn-dark ml-3" onClick={handleAddToCart}>
+            Intercambio            
           </button>
         </>
       ) : (
         <>
           <Link to="/cart">
-            <button className="btn btn-dark ml-3"> Ir al carrito <FaShoppingCart />  </button>
+            <button className="btn btn-dark ml-3"> Terminar de comprar <FaShoppingCart />  </button>
           </Link>
           <Link to="/">
-            <button className="btn btn-dark ml-3">Seguir comprando  <FaRegLaughWink />  </button>
+            <button className="btn btn-dark ml-3"> Seguir comprando  <FaRegLaughWink />  </button>
           </Link>
         </>
       )}
