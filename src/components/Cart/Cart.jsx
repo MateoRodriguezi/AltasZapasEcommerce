@@ -11,7 +11,7 @@ const Cart = () => {
         cartList.map(productos => (
           <div key={productos.id}>
             <img src={productos.image} className='w-25'/>
-            Nombre: {productos.name} - Cantidad: {productos.cantidad} - {productos.precio}
+            {productos.name}
           </div>
         ))
       ) : (
