@@ -41,10 +41,13 @@ export default function NavBar() {
                 ))
               }
             </Nav>
-            <Nav className="ms-auto">
+            <NavLink to={'/cart'}  className="ms-auto">
               <Cartwidget cartCounter={3} />
+            </NavLink>
+            <Nav>
               <button className="btn btn-dark">Sign Up</button>
             </Nav>
+              
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -4,10 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaShoppingCart, FaRegLaughWink } from "react-icons/fa";
 
 
-const ItemCount = ({ }) => {
+const ItemCount = ({ productos }) => {
   const [count, setCount] = useState(0);
   const [inputType, setInputType ] = useState('buttons');
-
+  
   const handleClick = (value) => {
     if (count + value >= 0) {
       setCount(count + value);
