@@ -37,7 +37,7 @@ const ItemCount = ({onAdd}) => {
             Agregar al carrito <FaShoppingCart />
           </button>
           <button className="btn btn-dark ml-3" onClick={handleAddToCart}>
-            Intercambiabilidad            
+            Opciones            
           </button>
         </>
       ) : (

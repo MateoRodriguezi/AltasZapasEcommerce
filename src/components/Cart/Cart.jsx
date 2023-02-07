@@ -26,7 +26,7 @@ const Cart = () => {
               <tr key={productos.id}>
                 <td><img src={productos.image} className='img-thumbnail w-25'/></td>
                 <td>{productos.name}</td>
-                <td>{productos.price * productos.cantidad}</td>
+                <td>ARS ${productos.price * productos.cantidad}</td>
                 <td>{productos.cantidad}</td>
               </tr>
             ))}
@@ -36,7 +36,7 @@ const Cart = () => {
         <div className='text-center'>No hay productos en el carrito</div>
       )}
       <div className='d-flex justify-content-end mt-3'>
-        <p className='mr-3'>Total: {sumTotal()}</p>
+        <p className='mr-3'>Total: ARS ${sumTotal()}</p>
         <button className='btn btn-danger' onClick={vaciarCarrito}> Vaciar Carrito </button>
       </div>
     </div>
