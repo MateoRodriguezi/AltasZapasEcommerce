@@ -11,8 +11,12 @@ export const CartContextProvider = ({children}) => {
 
     const agregarCarrito = (newProducto, cant) => {
         setCartList( [
-            ...newProducto,
-            cant
+            ...cartList,
+            {
+                id: cartList.length + 1, // agrega un id único para cada objeto
+                product: newProducto,
+                count: cant
+            }
         ])
     }
 

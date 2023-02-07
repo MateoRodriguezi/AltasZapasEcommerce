@@ -8,7 +8,7 @@ import './Item.css'
  
 
 const ItemDetailContainer = () => {
-  const [ productos, setProductos ] = useState([]);
+  const [ productos, setProductos ] = useState({});
   const [loading, setLoading] = useState(true);
 
   const { idProducto } = useParams()
@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
     if (idProducto) {
       gFetch()
         .then(res => {
-          setProductos(res.filter(producto => producto.id === idProducto));
+          setProductos(res.find(producto => producto.id === idProducto));
           setLoading(false);
       })
         .catch(error => console.log(error));

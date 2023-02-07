@@ -34,9 +34,7 @@ export default function NavBar() {
               {
                 menuData.map((item) => (
                   <NavLink to={item.path} key={item.name}>
-                    <a>
-                      <div className="list_item">{item.name}</div>
-                    </a>
+                    <span className="list_item">{item.name}</span>
                   </NavLink>
                 ))
               }

@@ -11,28 +11,27 @@ const ProductDetail = ({ productos }) => {
 
   const onAdd = (cant)=>{
     console.log(cant)
-    agregarCarrito( productos, cant )
+    agregarCarrito( { ...productos, cantidad: cant } )
   }
 
   const { cartList } = useCartContext()
     console.log(cartList)
 
-  return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-      {productos.map((producto) => (
-        <div key={producto.id} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    return (
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div className="card mx-2 mb-4" style={{width: "300px"}}>
             <div className='card-header text-center'>
-              {producto.name}
+              {productos.name}
             </div>
             <div className='card-body text-center'>
-              <img src={producto.image} alt='imagen' className='product-image w-100'/>
+              <img src={productos.image} alt='imagen' className='product-image w-100'/>
             </div>
             <div className='card-body text-center'>
-                <p>{producto.description}</p>
+                <p>{productos.description}</p>
             </div>
             <div className='card-body text-center'>
-              <strong>ARS ${producto.price}</strong>
+              <strong>ARS ${productos.price}</strong>
             </div>
             <div className='card-body text-center'>
               <NavLink to={'/'} className="btn btn-dark btn-large"> Atras </NavLink>
@@ -40,10 +39,9 @@ const ProductDetail = ({ productos }) => {
           </div>
           <ItemCount onAdd={onAdd} style={{ marginLeft: 'auto' }}/>
         </div>
-      ))}
-    </div>
-  );
-};
-
-export default ProductDetail;
+      </div>
+    );
+  };
+  
+  export default ProductDetail;
 
