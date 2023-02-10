@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 const ItemCount = ({onAdd}) => {
   const [count, setCount] = useState(0);
-  const [inputType, setInputType ] = useState('buttons');
+  const [showOptions, setShowOptions ] = useState(false);
   
   const handleClick = (value) => {
     if (count + value >= 0) {
@@ -17,12 +17,13 @@ const ItemCount = ({onAdd}) => {
   };
 
   const handleAddToCart = () => {
-    setInputType('links');
+    setShowOptions(true);
+    onAdd(count);
   };
 
   return (
     <div className="d-flex mt-3">
-      {inputType === 'buttons' ? (
+      {!showOptions ? (
         <>
           <button className="btn btn-danger" onClick={() => handleClick(-1)}>
             -
@@ -33,11 +34,8 @@ const ItemCount = ({onAdd}) => {
           <button className="btn btn-success" onClick={() => handleClick(1)}>
             +
           </button>
-          <button className="btn btn-dark ml-3" onClick={() => onAdd(count)}>
-            Agregar al carrito <FaShoppingCart />
-          </button>
           <button className="btn btn-dark ml-3" onClick={handleAddToCart}>
-            Opciones            
+            Agregar al carrito <FaShoppingCart />
           </button>
         </>
       ) : (
