@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { FaShoppingCart, FaRegLaughWink } from "react-icons/fa";
-import Swal from 'sweetalert2';
 
 
-const ItemCount = ({onAdd}) => {
+const ItemCount = ({ onAdd }) => {
   const [count, setCount] = useState(0);
-  const [showOptions, setShowOptions ] = useState(false);
-  
+  const [showOptions, setShowOptions] = useState(false);
+
   const handleClick = (value) => {
     if (count + value >= 0) {
       setCount(count + value);
@@ -17,8 +16,10 @@ const ItemCount = ({onAdd}) => {
   };
 
   const handleAddToCart = () => {
-    setShowOptions(true);
-    onAdd(count);
+    if (count > 0) {
+      setShowOptions(true);
+      onAdd(count);
+    }
   };
 
   return (
@@ -34,7 +35,11 @@ const ItemCount = ({onAdd}) => {
           <button className="btn btn-success" onClick={() => handleClick(1)}>
             +
           </button>
-          <button className="btn btn-dark ml-3" onClick={handleAddToCart}>
+          <button
+            className="btn btn-dark ml-3"
+            onClick={handleAddToCart}
+            disabled={count === 0}
+          >
             Agregar al carrito <FaShoppingCart />
           </button>
         </>
@@ -50,7 +55,7 @@ const ItemCount = ({onAdd}) => {
       )}
     </div>
   );
-  
+
 };
 
 export default ItemCount;
