@@ -21,11 +21,27 @@ export const CartContextProvider = ({children}) => {
       };
     const vaciarCarrito = () => setCartList ([ ])
 
+    const sumTotal = () => {
+      return cartList.reduce((acum, product) => acum + product.price * product.cantidad, 0)
+    }
+
+    const cartTotal = () => cartList.reduce( (count, producto) => count += producto.cantidad, 0)
+
+    const eliminarProducto = (productId) => {
+      const updatedCartList = cartList.filter(
+        (product) => product.id !== productId
+      );
+      setCartList(updatedCartList);
+    };
+
     return (
         <CartContext.Provider value={{
             cartList,
             agregarCarrito,
-            vaciarCarrito
+            vaciarCarrito,
+            sumTotal,
+            eliminarProducto,
+            cartTotal
         }}>
             {children}
         </CartContext.Provider>
