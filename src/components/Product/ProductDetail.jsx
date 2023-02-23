@@ -21,9 +21,6 @@ const ProductDetail = ({ productos }) => {
     });
   };
 
-  const { cartList } = useCartContext();
-  console.log(cartList);
-
   return (
     <div
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}

@@ -23,8 +23,7 @@ const Cart = () => {
     const ordersCollection = collection(db, "orders");
 
     addDoc(ordersCollection, order)
-      .then((resp) => console.log(resp))
-      .catch((err) => console.log(err))
+      .catch((err) => console.error(err))
       .finally(() => {
         vaciarCarrito();
         setFormData({

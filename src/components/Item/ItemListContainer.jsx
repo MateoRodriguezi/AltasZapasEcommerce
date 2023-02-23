@@ -29,7 +29,6 @@ const ItemListContainer = () => {
 
     getDocs(queryFilter)
       .then((resp) => {
-        console.log(resp.docs);
         setProductos(
           resp.docs.map((product) => ({ id: product.id, ...product.data() }))
         );
