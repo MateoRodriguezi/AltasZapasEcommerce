@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { collection, doc, getDoc, getFirestore } from 'firebase/firestore';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 
-import ProductoDetail from '../Product/ProductDetail';
+import ProductoDetail from "../Product/ProductDetail";
 
-import './Item.css'
- 
+import "./Item.css";
 
 const ItemDetailContainer = () => {
-  const [ productos, setProductos ] = useState({});
+  const [productos, setProductos] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const { idProducto } = useParams()
+  const { idProducto } = useParams();
 
   useEffect(() => {
     setLoading(true);
     const db = getFirestore();
-    const productosCollection = collection(db, 'productos');
+    const productosCollection = collection(db, "productos");
     const productoDoc = doc(productosCollection, idProducto);
-  
+
     getDoc(productoDoc)
       .then((doc) => {
         if (doc.exists()) {
@@ -44,10 +43,16 @@ const ItemDetailContainer = () => {
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <ProductoDetail productos={productos} />
     </div>
   );
-}
+};
 
 export default ItemDetailContainer;

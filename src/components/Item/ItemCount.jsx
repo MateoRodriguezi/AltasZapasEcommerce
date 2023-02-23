@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { FaShoppingCart, FaRegLaughWink } from "react-icons/fa";
 
-
 const ItemCount = ({ onAdd }) => {
   const [count, setCount] = useState(0);
   const [showOptions, setShowOptions] = useState(false);
@@ -29,7 +28,10 @@ const ItemCount = ({ onAdd }) => {
           <button className="btn btn-danger" onClick={() => handleClick(-1)}>
             -
           </button>
-          <p className="m-0 font-weight-bold" style={{ fontSize: "1.5em", width: "50px", textAlign: "center" }}>
+          <p
+            className="m-0 font-weight-bold"
+            style={{ fontSize: "1.5em", width: "50px", textAlign: "center" }}
+          >
             {count}
           </p>
           <button className="btn btn-success" onClick={() => handleClick(1)}>
@@ -46,16 +48,21 @@ const ItemCount = ({ onAdd }) => {
       ) : (
         <>
           <Link to="/cart">
-            <button className="btn btn-dark ml-3"> Terminar de comprar <FaShoppingCart />  </button>
+            <button className="btn btn-dark ml-3">
+              {" "}
+              Terminar de comprar <FaShoppingCart />{" "}
+            </button>
           </Link>
           <Link to="/">
-            <button className="btn btn-dark ml-3"> Seguir comprando  <FaRegLaughWink />  </button>
+            <button className="btn btn-dark ml-3">
+              {" "}
+              Seguir comprando <FaRegLaughWink />{" "}
+            </button>
           </Link>
         </>
       )}
     </div>
   );
-
 };
 
 export default ItemCount;
