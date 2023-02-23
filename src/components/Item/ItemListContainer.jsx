@@ -1,36 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
-import { gFetch } from '../../utils/gFetch';
 import ProductItem from '../Product/ProductItem';
 
 import './Item.css'
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
   const [ productos, setProductos ] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { idCategoria } = useParams()
 
-  useEffect (() => {
-    if (idCategoria) {
-      gFetch()
-        .then(res => {
-          setProductos(res.filter(producto => producto.categoria === idCategoria));
-          setLoading(false);
-      })
-        .catch(error => console.log(error));
-      
-    } else {
+  useEffect(()=>{
+    setLoading(true)
+    const db = getFirestore() 
+    const queryCollections = collection(db, 'productos')
 
-      gFetch()
-        .then(res => {
-          setProductos(res);
-          setLoading(false);
-      })
-        .catch(error => console.log(error));
-    }
-  }, [idCategoria]);
+    const queryFilter = idCategoria ? query(queryCollections, where('categoria','==', idCategoria) ) : queryCollections    
+    
+    getDocs(queryFilter)
+    .then(resp => {
+      console.log(resp.docs);
+      setProductos(resp.docs.map(product => ({ id: product.id, ...product.data() })));
+    })
+    .catch(err => console.error(err))
+    .finally(() => setLoading(false))    
+  }, [idCategoria])
 
 
   if (loading) {

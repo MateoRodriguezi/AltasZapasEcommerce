@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { collection, doc, getDoc, getFirestore } from 'firebase/firestore';
 
-import { gFetch } from '../../utils/gFetch';
 import ProductoDetail from '../Product/ProductDetail';
 
 import './Item.css'
@@ -13,26 +13,25 @@ const ItemDetailContainer = () => {
 
   const { idProducto } = useParams()
 
-  useEffect (() => {
-    if (idProducto) {
-      gFetch()
-        .then(res => {
-          setProductos(res.find(producto => producto.id === idProducto));
-          setLoading(false);
+  useEffect(() => {
+    setLoading(true);
+    const db = getFirestore();
+    const productosCollection = collection(db, 'productos');
+    const productoDoc = doc(productosCollection, idProducto);
+  
+    getDoc(productoDoc)
+      .then((doc) => {
+        if (doc.exists()) {
+          setProductos({ id: doc.id, ...doc.data() });
+        } else {
+          console.log("El documento no existe");
+        }
       })
-        .catch(error => console.log(error));
-      
-    } else {
-
-      gFetch()
-        .then(res => {
-          setProductos(res);
-          setLoading(false);
+      .catch((error) => {
+        console.log("Error obteniendo el documento: ", error);
       })
-        .catch(error => console.log(error));
-    }
+      .finally(() => setLoading(false));
   }, [idProducto]);
-
 
   if (loading) {
     return (

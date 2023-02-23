@@ -37,6 +37,7 @@ const Cart = () => {
       )}
       <div className='d-flex justify-content-end mt-3'>
         <p className='mr-3'>Total: ARS ${sumTotal()}</p>
+        <button className='btn btn-success' > Generar orden </button>
         <button className='btn btn-danger' onClick={vaciarCarrito}> Vaciar Carrito </button>
       </div>
     </div>
