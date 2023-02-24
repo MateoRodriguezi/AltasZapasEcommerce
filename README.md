@@ -64,5 +64,9 @@ El proyecto se ejecutará en http://localhost:5173 y se actualizará automática
 
 https://dynamic-kringle-3d61f1.netlify.app/
 
+## Grabacion de pantalla:
+
+https://drive.google.com/drive/folders/1H428Uh24FiouV0anAzW9Tw18qDcVkOZa?usp=sharing
+
 ## Autor
 Mateo Rodriguez Pintos - https://github.com/MateoRodriguezi
