@@ -47,6 +47,7 @@
 }
 
 .btn-eliminar {
+  color: #fff;
   background-color: #dc3545;
   border-color: #dc3545;
 }
@@ -55,4 +56,19 @@
   color: #fff;
   background-color: #c82333;
   border-color: #bd2130;
+}
+
+.btnForm:disabled {
+  background-color: gray;
+  color: white;
+}
+
+.btnForm {
+  background-color: #198754;
+  color: white;
+}
+
+.btnForm:hover {
+  background-color: #198754;
+  color: white;
 }

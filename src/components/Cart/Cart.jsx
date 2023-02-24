@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useCartContext } from "../../Context/CartContext";
+import Swal from "sweetalert2";
+
 import "./Cart.css";
 
 const Cart = () => {
@@ -10,6 +12,7 @@ const Cart = () => {
     email: "",
     repetirEmail: "",
   });
+  const [emailMatch, setEmailMatch] = useState(true);
 
   const { cartList, vaciarCarrito, sumTotal, eliminarProducto } =
     useCartContext();
@@ -23,8 +26,13 @@ const Cart = () => {
     const ordersCollection = collection(db, "orders");
 
     addDoc(ordersCollection, order)
-      .catch((err) => console.error(err))
-      .finally(() => {
+      .then((docRef) => {
+        Swal.fire({
+          title: "Agregado exitosamente!",
+          text: `Su orden se genero exitosamente con el ID: ${docRef.id}`,
+          icon: "success",
+          showConfirmButton: true,
+        });
         vaciarCarrito();
         setFormData({
           name: "",
@@ -32,7 +40,8 @@ const Cart = () => {
           email: "",
           repetirEmail: "",
         });
-      });
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleOnChange = (evt) => {
@@ -48,6 +57,10 @@ const Cart = () => {
       });
     }
   };
+
+  useEffect(() => {
+    setEmailMatch(formData.email === formData.repetirEmail);
+  }, [formData.email, formData.repetirEmail]);
 
   return (
     <div className="container mt-5">
@@ -71,14 +84,15 @@ const Cart = () => {
                   <td>{productos.name}</td>
                   <td>ARS ${productos.price * productos.cantidad}</td>
                   <td>{productos.cantidad}</td>
-                  <br />
-                  <button
-                    className="btn btn-eliminar"
-                    onClick={() => eliminarProducto(productos.id)}
-                  >
-                    {" "}
-                    X{" "}
-                  </button>
+                  <td>
+                    <button
+                      className="btn btn-eliminar"
+                      onClick={() => eliminarProducto(productos.id)}
+                    >
+                      {" "}
+                      X{" "}
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -90,13 +104,14 @@ const Cart = () => {
         )}
       </div>
 
-      <div className="d-flex justify-content-end mt-3">
-        <p className="mr-3">Total: ARS ${sumTotal()}</p>
-        <button className="btn btn-danger" onClick={vaciarCarrito}>
-          {" "}
-          Vaciar Carrito{" "}
-        </button>
-      </div>
+      {cartList.length > 0 && (
+        <div className="d-flex justify-content-end mt-3">
+          <p className="mr-3">Total: ARS ${sumTotal()}</p>
+          <button className="btn btn-danger" onClick={vaciarCarrito}>
+            Vaciar Carrito
+          </button>
+        </div>
+      )}
       <br />
       <div className="text-center form-message">
         <b>FORMULARIO PARA COMPLETAR COMPRA</b>
@@ -150,7 +165,12 @@ const Cart = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-success">
+        <button
+          type="submit"
+          className="btn btnForm"
+          //Se deshabilita el boton de generar orden cuando los email no coinciden
+          disabled={!emailMatch}
+        >
           {" "}
           Generar orden{" "}
         </button>
