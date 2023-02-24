@@ -2,23 +2,44 @@
 
 Proyecto construido con VITE en React sobre e-commerce de venta de zapatillas importadas
 
-Comenzando:
+<img width="1438" alt="Captura de pantalla 2023-02-24 a la(s) 00 40 43" src="https://user-images.githubusercontent.com/85966833/221087484-8162fa3c-2d4e-4f7f-af25-b5fca0064703.png">
+
+## Comenzando
 Estas instrucciones le proporcionarán una copia del proyecto en funcionamiento en su máquina local para fines de desarrollo y prueba.
 
-Prerequisitos:
+## Prerequisitos:
 
 Node.js versión 10 o superior
 Vite
 
-Instalación
-Clone el repositorio: git clone https://github.com/MateoRodriguezi/PreEntrega1RodriguezPintos.git
-Instale las dependencias: npm install o yarn install
-Inicie el servidor de desarrollo: npm run dev o yarn dev
+## Instalación
+
+Para obtener una copia del proyecto, ejecute el siguiente comando en la terminal:
+
+```sh
+git clone https://github.com/MateoRodriguezi/PreEntrega1RodriguezPintos.git
+```
+Luego, puede instalar las dependencias del proyecto con cualquiera de los siguientes comandos:
+
+```sh
+npm install
+yarn install
+```
+
+Para iniciar el servidor de desarrollo, ejecute:
+
+
+```sh
+npm run dev
+yarn dev
+```
+
 El proyecto se ejecutará en http://localhost:5173 y se actualizará automáticamente al hacer cambios en los archivos.
 
-Dependencias utilizadas:
 
-"@fortawesome/fontawesome-svg-core": "^6.2.1": Biblioteca de iconos vectoriales que permite trabajar con íconos personalizables en proyectos web.
+## Dependencias utilizadas:
+
+@fortawesome/fontawesome-svg-core: "^6.2.1": Biblioteca de iconos vectoriales que permite trabajar con íconos personalizables en proyectos web.
 "@fortawesome/free-solid-svg-icons": "^6.2.1": Colección de iconos sólidos gratuitos para su uso en proyectos web.
 "@fortawesome/react-fontawesome": "^0.2.0": Librería que proporciona componentes React para la integración de íconos de Font Awesome en aplicaciones web.
 "bootstrap": "^5.2.3": Framework de diseño y desarrollo web que proporciona una variedad de componentes y herramientas para la construcción de interfaces de usuario responsivas y atractivas.
@@ -34,14 +55,14 @@ Dependencias utilizadas:
 "styled-components": "^5.3.6": Biblioteca que permite definir estilos CSS en los componentes React de forma dinámica y reutilizable.
 "sweetalert2": "^11.7.1": Biblioteca que proporciona ventanas emergentes personalizables para mostrar mensajes y notificaciones en aplicaciones web.
 
-Construido con:
+## Construido con:
 
-Vite - Servidor de desarrollo rápido para proyectos de JavaScript
-React - Utilizado para construir la interfaz de usuario
+- Vite - Servidor de desarrollo rápido para proyectos de JavaScript
+- React - Utilizado para construir la interfaz de usuario
 
-Demo: https://github.com/MateoRodriguezi/AltasZapasEcommerce
+## Demo:
 
-Autor
+https://dynamic-kringle-3d61f1.netlify.app/
+
+## Autor
 Mateo Rodriguez Pintos - https://github.com/MateoRodriguezi
-
-[Grabación de pantalla 2023-02-02 a la(s) 02.52.21.zip](https://github.com/MateoRodriguezi/PreEntrega2RodriguezPintos/files/10565594/Grabacion.de.pantalla.2023-02-02.a.la.s.02.52.21.zip)
